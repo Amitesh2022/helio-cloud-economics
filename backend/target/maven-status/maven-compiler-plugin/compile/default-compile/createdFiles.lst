@@ -1,0 +1,6 @@
+com/amitesh/portfolio/heliocloudeconomics/api/CreateRecordRequest.class
+com/amitesh/portfolio/heliocloudeconomics/PortfolioApplication.class
+com/amitesh/portfolio/heliocloudeconomics/service/PortfolioService.class
+com/amitesh/portfolio/heliocloudeconomics/domain/PortfolioRecord.class
+com/amitesh/portfolio/heliocloudeconomics/api/PortfolioController.class
+com/amitesh/portfolio/heliocloudeconomics/api/ApiExceptionHandler.class

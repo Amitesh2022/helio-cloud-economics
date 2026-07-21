@@ -1,0 +1,5 @@
+import './BackendStatus.css'
+import { useEffect, useState } from 'react'
+type RecordItem={id:string;title:string;status:string}
+const API='http://localhost:8080/api'
+export function BackendStatus(){const[items,setItems]=useState<RecordItem[]>([]),[message,setMessage]=useState('Connecting to Java API…'),[busy,setBusy]=useState(false);const load=async()=>{try{const r=await fetch(`${API}/records`);if(!r.ok)throw new Error();const data=await r.json();setItems(data);setMessage('Java API connected')}catch{setMessage('Start the Java backend on port 8080')}};useEffect(()=>{void load()},[]);const add=async()=>{setBusy(true);try{await fetch(`${API}/records`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({title:'New browser cost action',note:'Created from the frontend'})});await load()}finally{setBusy(false)}};return <section className="backend-status" aria-live="polite"><strong>Full-stack connection</strong><span>{message} · {items.length} records</span><button disabled={busy||!items.length} onClick={add}>{busy?'Saving…':'Add sample cost action'}</button></section>}
